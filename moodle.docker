@@ -4,6 +4,12 @@ RUN apt-get update
 
 RUN apt install nginx -y
 
+RUN apt install php-fpm php-mysql -y
+
+RUN sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/7.2/fpm/php.ini
+
+RUN mkdir /run/php
+
 #CMD ["nginx", "-g", "daemon off;"]
 
 RUN apt install supervisor -y
