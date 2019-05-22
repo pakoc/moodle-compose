@@ -1,0 +1,8 @@
+version: '2'
+services: 
+  moodle:
+    build:
+      context: ./
+      dockerfile: moodle.docker
+    ports:
+      - "8088:80"
