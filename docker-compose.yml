@@ -6,5 +6,9 @@ services:
       dockerfile: moodle.docker
     volumes:
       - "./nginx.conf:/etc/nginx/sites-available/default"
+      - "./app/moodle:/var/www/html"
+      - "./app/moodledata:/var/www/moodledata"
     ports:
       - "8088:80"
+    env_file:
+      - moodle.env
