@@ -1,5 +1,14 @@
 version: '2'
-services: 
+services:
+  database:
+    image: mysql:5.7.21
+    environment:
+    - "MYSQL_DATABASE=moodledb"
+    - "MYSQL_USER=moodledb"
+    - "MYSQL_PASSWORD=secret"
+    - "MYSQL_ROOT_PASSWORD=secret"
+    ports:
+      - "33062:3306"
   moodle:
     build:
       context: ./
@@ -10,5 +19,7 @@ services:
       - "./app/moodledata:/var/www/moodledata"
     ports:
       - "8088:80"
-    env_file:
-      - moodle.env
+    environment:
+      - "WWWROOT=http://v-labs.new"
+    links:
+      - database
