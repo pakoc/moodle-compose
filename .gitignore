@@ -1,0 +1,5 @@
+app/moodle/*
+app/moodledata/*
+
+!app/moodle/.gitkeep 
+!app/moodledata/.gitkeep 
