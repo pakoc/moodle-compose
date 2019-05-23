@@ -4,5 +4,7 @@ services:
     build:
       context: ./
       dockerfile: moodle.docker
+    volumes:
+      - "./nginx.conf:/etc/nginx/sites-available/default"
     ports:
       - "8088:80"
